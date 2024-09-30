@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ClientesController;
+use App\Http\Controllers\FormularioController;
 use Illuminate\Support\Facades\Route;
 /* 
 Route::get('/', function () {
@@ -8,5 +10,8 @@ Route::get('/', function () {
  */
 
  //ruta de tipo view 
-Route::view('/','welcome');
-Route::view('/form','formulario');
+Route::view('/', 'Inicio')->name('Inicio');
+
+Route::get('/form', [FormularioController::class, 'index'])->name('formulario');
+
+Route::get('/clien', [ClientesController::class, 'index'])->name('clientes');
