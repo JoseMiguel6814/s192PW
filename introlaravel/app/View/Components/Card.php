@@ -8,12 +8,22 @@ use Illuminate\View\Component;
 
 class Card extends Component
 {
-    /**
-     * Create a new component instance.
-     */
-    public function __construct()
+
+    public $encabezado;
+    public $titulo;
+    public $textoboton;
+
+
+
+    public function __construct($encabezado,$titulo,$textoboton)
     {
-        //
+        $this->encabezado= $encabezado;
+        $this->titulo= $titulo;
+        $this->textoboton= $textoboton;
+        
+
+
+
     }
 
     /**

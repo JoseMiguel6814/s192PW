@@ -17,3 +17,5 @@ Route::view('/form', 'formulario')->name('formulario');
 Route::view('/clientes', 'clientes')->name('clientes');
 
 Route::view('/inicio', 'inicio')->name('inicio');
+
+Route::view('/comp', 'componentes')->name('componentes');
