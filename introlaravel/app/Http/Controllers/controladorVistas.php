@@ -19,9 +19,13 @@ class controladorVistas extends Controller
    }
 
    public function procesar_cliente(Request $peticion){
-      return $peticion->all();
+      //return $peticion->all();
       //return 'la informacion del cliente llego al controlador';
-     }
+      //return $peticion->path();
+      //return $peticion->url();
+      return $peticion->ip();
+   
+   }
 
 
 }
