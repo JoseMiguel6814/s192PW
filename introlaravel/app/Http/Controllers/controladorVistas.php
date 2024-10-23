@@ -23,8 +23,33 @@ class controladorVistas extends Controller
       //return 'la informacion del cliente llego al controlador';
       //return $peticion->path();
       //return $peticion->url();
-      return $peticion->ip();
+      //return $peticion->ip();
    
+
+
+
+      //!procesar vistas
+      //return redirect()->route('clientes');
+
+      //!redireccion al origen
+      //return back();
+
+
+      //!redireccion con valores en session
+      $usuario= $peticion->input(('txtnombre'));
+      session()->flash('exito','se guardo el usuario'.$usuario);
+      return to_route('formulario');
+
+
+
+
+
+
+
+
+
+
+
    }
 
 
