@@ -9,12 +9,16 @@
 {{-- inicia Tarjeta con formulario --}}
     <div class="container mt-5 col-md-6">
 
-       
-        @if (@session('exito'))
-        <x-alert tipo="success">{{('exito')}} </x-alert>     
-       
-            
-        @endif
+    
+        @session('exito')
+       <script>
+        Swal.fire({
+            title: "Good job!",
+            text: "You clicked the button!",
+            icon: "success"
+          });
+       </script>
+        @endsession
 
 
 
@@ -39,19 +43,20 @@
                     
                     <div class="mb-3">
                         <label for="nombre" class="form-label">Nombre: </label>
-                        <input type="text" class="form-control" name="txtnombre">
+                        <input type="text" class="form-control" name="txtnombre" value={{old('txtnombre')}}>
+                        <small class="fst-italic text-danger">{{$errors->first('txtnombre')}}</small>
                     </div>
                     <div class="mb-3">
                         <label for="apellido" class="form-label">Apellido: </label>
-                        <input type="text" class="form-control" name="txtapellido">
+                        <input type="text" class="form-control" name="txtapellido" value={{old('txtapellido')}}>
                     </div>
                     <div class="mb-3">
                         <label for="correo" class="form-label">Correo: </label>
-                        <input type="email" class="form-control" name="txtcorreo">
+                        <input type="email" class="form-control" name="txtcorreo" value={{old('txtcorreo')}}>
                     </div>
                     <div class="mb-3">
                         <label for="telefono" class="form-label">Teléfono: </label>
-                        <input type="number" class="form-control" name="numbertelefono">
+                        <input type="number" class="form-control" name="numbertelefono" value={{old('numbertelefono')}}>
                     </div>
                     <div class="card-footer text-muted">
                         <div class="d-grid gap-2 mt-2 mb-1">
