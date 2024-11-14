@@ -14,7 +14,8 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        //
+        $consultaclientes = DB::table('clientes')->get();
+        return view('clientes',compact('consultaclientes'));
     }
 
     /**

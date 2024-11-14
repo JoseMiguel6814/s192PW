@@ -7,7 +7,7 @@ use App\Http\Controllers\controladorVistas;
 //controlador vistas
 Route::get('/',[controladorVistas::class, 'home'])->name('inicio');
 
-Route::get('/clientes',[controladorVistas::class, 'consulta'])->name('clientes');
+
 Route::post('/enviarclientes',[controladorVistas::class, 'procesar_cliente'])->name('rutaEnviar');
 Route::view('/comp', 'componentes')->name('componentes');
 
@@ -18,7 +18,7 @@ Route::view('/comp', 'componentes')->name('componentes');
 Route::get('/cliente/create',[ClienteController::class, 'create'])->name('formulario');
 
 Route::post('/cliente',[ClienteController::class, 'store'])->name('enviar');
-
+Route::get('/clientes',[ClienteController::class, 'index'])->name('clientes');
 
 
 
