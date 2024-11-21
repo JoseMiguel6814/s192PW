@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use App\Http\Requests\validadorClientes;
+use App\Models\Cliente;
 
 class ClienteController extends Controller
 {
@@ -63,9 +64,20 @@ class ClienteController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(validadorClientes $request, string $id)
     {
-        //
+        $cliente = Cliente::findOrFail($id);
+    // Actualizar la información del cliente
+    $cliente->update([
+        'nombre' => $request->txtnombre,
+        'apellido' => $request->txtapellido,
+        'correo' => $request->txtcorreo,
+        'telefono' => $request->numbertelefono,
+    ]);
+
+    // Redirigir con mensaje de éxito
+    return redirect()->back()->with('exito', 'Cliente actualizado con éxito');
+
     }
 
     /**
@@ -73,6 +85,13 @@ class ClienteController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+          // Buscar el cliente por su ID
+          $cliente = Cliente::findOrFail($id);
+
+          // Eliminar el cliente
+          $cliente->delete();
+           // Redirigir con mensaje de éxito
+    return redirect()->back()->with('exito', 'Cliente actualizado con éxito');
+
     }
 }

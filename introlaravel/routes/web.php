@@ -4,6 +4,11 @@ use App\Http\Controllers\ClienteController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\controladorVistas;
 
+Route::delete('/clientes/{id}', [ClienteController::class, 'destroy'])->name('clientes.destroy');
+
+/* Route::get('/clientes/{id}/edit', [ClienteController::class, 'edit'])->name('clientes.edit'); */
+Route::put('/clientes/{id}', [ClienteController::class, 'update'])->name('clientes.update');
+
 //controlador vistas
 Route::get('/',[controladorVistas::class, 'home'])->name('inicio');
 
